@@ -2,9 +2,11 @@ package com.example.btn_nhom2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +19,7 @@ import java.util.List;
 public class OrderSummaryActivity extends AppCompatActivity {
     private RecyclerView rvDetails;
     private TextView tvTotal;
-    private Button btnPay;
+    private Button btnPay, btnBack;
     private AppDatabase db;
     private int orderId;
 
@@ -27,6 +29,7 @@ public class OrderSummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_summary);
 
         if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("Checkout (Thanh toán)");
         }
 
@@ -36,6 +39,7 @@ public class OrderSummaryActivity extends AppCompatActivity {
         rvDetails = findViewById(R.id.rvOrderDetails);
         tvTotal = findViewById(R.id.tvTotalAmount);
         btnPay = findViewById(R.id.btnPay);
+        btnBack = findViewById(R.id.btnBackFromCart);
 
         rvDetails.setLayoutManager(new LinearLayoutManager(this));
         
@@ -57,6 +61,8 @@ public class OrderSummaryActivity extends AppCompatActivity {
                 finish(); // Đóng màn hình checkout
             }
         });
+
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void loadOrderData() {
@@ -75,5 +81,14 @@ public class OrderSummaryActivity extends AppCompatActivity {
             order.totalAmount = total;
             db.orderDao().update(order);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

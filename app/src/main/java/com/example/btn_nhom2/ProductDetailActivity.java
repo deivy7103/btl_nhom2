@@ -20,7 +20,7 @@ import java.util.Locale;
 
 public class ProductDetailActivity extends AppCompatActivity {
     private TextView tvName, tvPrice, tvDescription;
-    private Button btnAddToCart;
+    private Button btnAddToCart, btnBack;
     private AppDatabase db;
     private PreferenceManager pref;
     private int productId;
@@ -45,6 +45,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         tvPrice = findViewById(R.id.tvDetailPrice);
         tvDescription = findViewById(R.id.tvDetailDescription);
         btnAddToCart = findViewById(R.id.btnAddToCart);
+        btnBack = findViewById(R.id.btnBackDetail);
 
         product = db.productDao().getProductById(productId);
         if (product != null) {
@@ -54,6 +55,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         }
 
         btnAddToCart.setOnClickListener(v -> handleAddToCart());
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void handleAddToCart() {
