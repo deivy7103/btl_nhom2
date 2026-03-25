@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "btn_nhom2"
 include(":app")
+//OK
  
