@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.btn_nhom2.database.AppDatabase;
 import com.example.btn_nhom2.entity.User;
 import com.example.btn_nhom2.util.PreferenceManager;
-
+// login
 public class LoginActivity extends AppCompatActivity {
     private EditText etUsername, etPassword;
     private Button btnSubmit;
