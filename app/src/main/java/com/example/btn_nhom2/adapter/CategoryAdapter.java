@@ -18,10 +18,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         void onItemClick(Category category);
     }
 
+
+
     public CategoryAdapter(List<Category> categories, OnItemClickListener listener) {
         this.categories = categories;
         this.listener = listener;
     }
+
+
 
     @NonNull
     @Override
@@ -29,7 +33,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
         return new ViewHolder(view);
     }
-
+// click vao mat hang de xem chi tiet
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Category category = categories.get(position);

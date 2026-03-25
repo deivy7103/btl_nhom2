@@ -11,7 +11,7 @@ import java.util.List;
 public interface OrderDao {
     @Insert
     long insert(Order order);
-
+//update gio hang
     @Update
     void update(Order order);
 

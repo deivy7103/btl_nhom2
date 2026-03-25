@@ -5,6 +5,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import com.example.btn_nhom2.entity.Product;
 import java.util.List;
+//Hien thong tin mat hang
 
 @Dao
 public interface ProductDao {
