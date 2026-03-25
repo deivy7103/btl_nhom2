@@ -16,10 +16,13 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ProductDetailActivity" />
+        <activity android:name=".OrderSummaryActivity" />
+        <activity android:name=".InvoiceActivity" />
     </application>
 
 </manifest>
